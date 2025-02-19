@@ -123,3 +123,264 @@ Explore the stream module and handle stream to read large txt files (say siz 1mb
 Explore the OS module and print all the details of your system.
 Code all the module functions in the index.js
 Use Command Line Arguments to run all the functions and provide necessary inputs in the command line.
+
+//HTTP & Server
+Q: 3👍
+Submission Instructions:
+Please submit the Masai Repo Link.
+HTTP
+This assignment helps in exploration of HTTP module in NodeJs, you are open to refer all the documentations
+Instructions
+Explore HTTP module and then create an http server, run the server on the port 8080
+Create End Points/Routes like /, /aboutus, /contactus, /index
+Send the response as welcome to Home Page for / route
+Send the response as welcome to About Page in h3 tag for /aboutus route
+Send the response as contact us at www.masaichool.com in a tag for /aboutus route, on click on the anchir tag, it should open Masai Website
+Incase of /index route, read the index.js file and send the same as response
+Incase of any other routes not specified as above, should give the response as 404 Not Found
+Ensure you are sending proper status code along with response.
+
+
+//CRUD OPERATIONS
+Q: 4👍
+CRUD Operations with HTTP Server and db.json
+Description:
+You are tasked with building a basic HTTP server to handle CRUD (Create, Read, Update, Delete) operations. The server will interact with a db.json file to store, update, and retrieve data.
+
+Requirements:
+Database (db.json)
+
+Use a db.json file to simulate a database. This file will store user records.
+Each record will have the following fields:
+id (unique identifier)
+name (string)
+email (string)
+password (string)
+phone (string)
+Example of db.json content:
+
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "password123",
+    "phone": "123-456-7890"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "password": "password456",
+    "phone": "987-654-3210"
+  }
+]
+Operations: Your HTTP server should support the following CRUD operations:
+
+a) Create (POST /create):
+The client will send a request with the following data:
+
+name: (string)
+email: (string)
+password: (string)
+phone: (string)
+The server will create a new record with an auto-generated id and return the created record, excluding the password in the response.
+
+Example Request:
+
+{
+  "name": "Alice",
+  "email": "alice@example.com",
+  "password": "alicepassword",
+  "phone": "555-555-5555"
+}
+Example Response:
+
+{
+  "id": 3,
+  "name": "Alice",
+  "email": "alice@example.com",
+  "phone": "555-555-5555"
+}
+b) Read (GET /read):
+The server will return all records from the db.json file.
+Important: The password field should be excluded in the response.
+Example Response:
+
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@example.com",
+    "phone": "123-456-7890"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "phone": "987-654-3210"
+  }
+]
+c) Update (PUT /update/:id):
+The client will send updated data for a record identified by its id. The updated data should include:
+
+name: (string)
+email: (string)
+phone: (string)
+The server will return the updated record with the id.
+
+Example Request:
+
+{
+  "name": "John Doe",
+  "email": "john_new@example.com",
+  "phone": "555-555-5555"
+}
+Example Response:
+
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john_new@example.com",
+  "phone": "555-555-5555"
+}
+d) Delete (DELETE /delete/:id):
+The client will specify an id to delete a record from the database.
+
+The server will delete the record and return a success message.
+
+Example Response:
+
+{ "message": "Record deleted successfully" }
+Password Handling:
+
+When creating a record (POST /create), the password should be included in the request, but it should only be stored in the db.json file.
+When fetching records (GET /read), the password field should not be included in the response.
+Error Handling:
+
+If a GET, PUT, or DELETE request is made for a record that does not exist, return a suitable error message (e.g., 404 Not Found).
+File Updates:
+
+Ensure that every operation (Create, Update, Delete) updates the db.json file accordingly.
+Example Usage:
+1. Create a new user:
+POST /create:
+Request:
+{
+  "name": "Alice",
+  "email": "alice@example.com",
+  "password": "alicepassword",
+  "phone": "555-555-5555"
+}
+Response:
+{
+  "id": 3,
+  "name": "Alice",
+  "email": "alice@example.com",
+  "phone": "555-555-5555"
+}
+2. Read all users:
+GET /read:
+Response:
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@example.com",
+    "phone": "123-456-7890"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "phone": "987-654-3210"
+  }
+]
+3. Update a user's information:
+PUT /update/1:
+Request:
+{
+  "name": "John Doe",
+  "email": "john_new@example.com",
+  "phone": "555-555-5555"
+}
+Response:
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john_new@example.com",
+  "phone": "555-555-5555"
+}
+4. Delete a user:
+DELETE /delete/1:
+Response:
+{ "message": "Record deleted successfully" }
+
+
+//Express
+Q: 5👍
+Submission Instructions:
+Please submit the Masai Repo Link.
+
+Simple Express Server
+This assignment helps in exploration of Express module in NodeJs, you are open to refer all the documentations
+
+Instructions
+You need to build a simple Express.js web server that performs the following tasks:
+
+Create an Express.js application that listens on port 3000. The server should print "Server is running on http://localhost:3000" when it starts. Handle Different Routes:
+
+Set up the following routes:
+
+GET /: When the root URL is accessed, the server should respond with the text "Welcome to the Express.js Server!".
+
+GET /about: When /about is accessed, the server should respond with the text "This is a simple web server built using Express.js.".
+
+GET /contact: When /contact is accessed, the server should respond with a JSON object containing contact details:
+
+ ```
+ {
+ "email": "student@example.com",
+ "phone": "123-456-7890"
+ }
+ ```
+GET /random: When /random is accessed, the server should respond with a random number between 1 and 100. Error Handling:
+
+Implement a default route to handle any undefined routes. If the user tries to access a route that does not exist, the server should respond with a 404 status and the message "404 - Page Not Found". Test Your Server:
+
+Start the server and test all the routes by accessing them in your web browser or using tools like Postman.
+
+Q: 6👍
+Express Todo CRUD
+Overview
+In this particular problem statement, you have to create basic APIs for a Todo Application, Your APIs should be able to perform CRUD oprations on the todo data. Create a db.json file and add radom todos as per your creativity. consider this as your database.
+
+Detailed Explanation
+Topics
+HTTP Methods.
+Express.
+File System Module.
+CRUD Operations.
+Using External Modules.
+Nodemon.
+Setup Guidelines and Instructions
+The code should be written in Node.js.
+Add comments throughout your code to explain the logic behind each step.
+Initialize a new node project.
+Install express to manage APIs.
+nodemon should be used to run the server.
+Write the nodemon script to handle the server running process.
+Problem Statement
+Create a file db.json and add todos data as per your creativity but follow the following structure.
+  {
+    "todos" : [
+      {},
+      {},
+      {},
+    ]
+  }
+An API to get all the todos present in the database.
+An API to add a new todo in the database.
+An API to update the status of all the todos that have even ID from false to true. This will work only if the todo with even ID has a status as false.
+An API to Delete all the todos whose status is true.
+
